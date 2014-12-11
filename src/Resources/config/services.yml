@@ -1,0 +1,50 @@
+services:
+  controller_generator:
+    class: Kix\GeneratorBundle\Generator\ControllerGenerator
+    arguments:
+      - @event_dispatcher
+      - @processor_dispatcher
+    tags:
+      - { name: generator }
+
+  twig_template_generator:
+    class: Kix\GeneratorBundle\Generator\TwigViewGenerator
+    arguments:
+      - @event_dispatcher
+    tags:
+      - { name: kernel.event_subscriber }
+      - { name: generator }
+    calls:
+      - [ setSkeletonDirs, [ "%skeleton_dirs%" ]]
+
+##  haml_template_generator:
+##    class: KixGeneratorBundle\Generator\HamlViewGenerator
+##    arguments:
+##      - @event_dispatcher
+##    tags:
+##      - { name: kernel.event_subscriber }
+##      - { name: generator }
+
+  unit_test_generator:
+    class: Kix\GeneratorBundle\Generator\UnitTestGenerator
+    arguments:
+      - @templating
+    tags:
+      - { name: kernel.event_subscriber }
+      - { name: generator }
+
+  route_generator:
+    class: Kix\GeneratorBundle\Generator\RoutingGenerator
+    arguments:
+      - %kernel.root_dir%
+    tags:
+      - { name: kernel.event_subscriber }
+      - { name: generator }
+
+  processor_dispatcher:
+    class: Kix\GeneratorBundle\AST\Dispatcher
+
+  sample_ast_listener:
+    class: Kix\GeneratorBundle\AST\Processor\SampleProcessor
+    tags:
+      - { name: generator.ast_processor }

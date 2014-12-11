@@ -1,0 +1,12 @@
+<?php
+namespace {{ spec.bundle.namespace }}\Controller;
+
+/**
+ * {{ spec.name }} controller
+ */
+class {{ spec.name }}Controller
+{
+{% for action in spec.actions %}
+{{ include('Controller/action.php.twig', {'action': action }) }}
+{% endfor %}
+}

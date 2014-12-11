@@ -1,0 +1,26 @@
+{
+    "name": "kix/generator-bundle",
+    "description": "A rethinking of generator bundle for Symfony",
+    "license": "BSD",
+    "authors": [
+        {
+            "name": "Stepan Anchugov",
+            "email": "kixxx1@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Kix\\GeneratorBundle\\": "src/",
+            "Kix\\GeneratorBundle\\Tests\\": "test"
+        }
+    },
+    "require": {
+        "nikic/php-parser": "~1.0"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "~2.0"
+    },
+        "config": {
+        "bin-dir": "bin"
+    }
+}
