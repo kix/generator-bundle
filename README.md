@@ -18,8 +18,8 @@ implementations that would modify the syntax tree before it's dumped into a file
 
 Currently, the implementation is lacking some things:
 
-- PHPParser does not yet allow dumping comment blocks, so there's no way to generate
-annotations yet.
+- ~~PHPParser does not yet allow dumping comment blocks, so there's no way to generate
+annotations yet.~~
 - The ControllerGenerator is mostly just proof-of-concept.
 - AST processors have not really been tested yet.
 - Everything needs way more flexibility.
